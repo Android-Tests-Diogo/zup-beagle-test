@@ -1,7 +1,5 @@
 package com.beagletest.dataprovider.repository
-import com.beagletest.dataprovider.Constants
 import com.beagletest.dataprovider.data.model.VerticalComponentModel
-import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.Test
 
