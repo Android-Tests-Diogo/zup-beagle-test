@@ -1,0 +1,2 @@
+include ':app', ':core', ':dataprovider'
+rootProject.name='BeagleTest'

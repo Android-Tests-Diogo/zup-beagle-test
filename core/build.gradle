@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/config/detekt/detekt.gradle"
+apply from: "${rootDir}/config/ktlint/ktlint.gradle"
+
+android {
+    compileSdkVersion project.ext.myCompileSdkVersion
+    buildToolsVersion "${versions.buildToolsVersion}"
+
+    defaultConfig {
+        minSdkVersion project.ext.myMinSdkVersion
+        targetSdkVersion project.ext.myTargetSdkVersion
+        versionCode project.ext.myVersionCode
+        versionName project.ext.myVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.core:core-ktx:1.2.0'
+    api'junit:junit:4.12'
+    api 'androidx.test.ext:junit:1.1.1'
+    api 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    api 'com.google.dagger:dagger-android:2.16'
+    api 'com.google.dagger:dagger-android-support:2.16'
+    api 'com.google.dagger:dagger-android-support:2.16'
+}
