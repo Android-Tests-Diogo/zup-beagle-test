@@ -40,6 +40,4 @@ class MainActivityViewModelTest {
         // Then
         assertTrue(componentTree is VerticalComponent)
     }
-
-
 }
