@@ -15,7 +15,8 @@ class ButtonComponentTest : BaseComponentTest() {
     @Test
     override fun createComponentTest() {
         // Given
-        val component = ButtonComponent("", viewFactory)
+        val string = "Text"
+        val component = ButtonComponent(string, viewFactory)
 
         // When
         `when`(viewFactory.createButton(context)).thenReturn(button)
@@ -23,6 +24,6 @@ class ButtonComponentTest : BaseComponentTest() {
 
         // Then
         Mockito.verify((linearLayout as ViewGroup)).addView(button)
-        Mockito.verify(button).text = Mockito.anyString()
+        Mockito.verify(button).text = string
     }
 }

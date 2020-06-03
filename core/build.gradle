@@ -41,9 +41,10 @@ dependencies {
     api 'androidx.test.ext:junit:1.1.1'
     api 'androidx.test.espresso:espresso-core:3.2.0'
 
-    testImplementation 'org.mockito:mockito-core:2.19.0'
-    androidTestImplementation 'org.mockito:mockito-android:2.7.22'
-    testImplementation 'org.mockito:mockito-inline:2.8.47'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.5'
+    testImplementation 'org.powermock:powermock-module-junit4-rule-agent:1.6.2'
+    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.5'
+    testImplementation 'org.powermock:powermock-module-junit4:1.6.5'
 
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'

@@ -13,7 +13,8 @@ class TextComponentTest : BaseComponentTest() {
     @Test
     override fun createComponentTest() {
         // Given
-        val component = TextComponent("", viewFactory)
+        val string = "Text"
+        val component = TextComponent(string, viewFactory)
 
         // When
         Mockito.`when`(viewFactory.createTextView(context)).thenReturn(textView)
@@ -21,5 +22,6 @@ class TextComponentTest : BaseComponentTest() {
 
         // Then
         Mockito.verify((linearLayout as ViewGroup)).addView(textView)
+        Mockito.verify(textView).text = string
     }
 }
