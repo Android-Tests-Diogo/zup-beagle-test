@@ -2,11 +2,14 @@ package com.beagletest.core.components
 
 import android.content.Context
 import android.view.ViewGroup
-import android.widget.TextView
+import com.beagletest.core.components.factory.ViewFactory
 
-class TextComponent (private val text: String): IComponent {
+class TextComponent (private val text: String,
+                     override val viewFactory: ViewFactory
+): BaseComponent() {
+
     override fun generateComponent(context: Context, view: ViewGroup) {
-        val textView = TextView(context)
+        val textView = viewFactory.createTextView(context)
         textView.text = text
         view.addView(textView)
     }

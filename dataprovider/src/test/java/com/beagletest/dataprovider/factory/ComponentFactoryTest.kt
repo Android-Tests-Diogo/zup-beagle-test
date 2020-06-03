@@ -1,6 +1,7 @@
 package com.beagletest.dataprovider.factory
 
 import com.beagletest.core.components.*
+import com.beagletest.core.components.factory.ViewFactory
 import com.beagletest.dataprovider.Constants.BUTTON
 import com.beagletest.dataprovider.Constants.IMAGE
 import com.beagletest.dataprovider.Constants.INPUT
@@ -11,6 +12,7 @@ import junit.framework.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
@@ -18,11 +20,14 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ComponentFactoryTest {
 
+    @Mock
+    lateinit var viewFactory: ViewFactory
+
     lateinit var factory: ComponentFactory
 
     @Before
     fun setUp() {
-        factory = ComponentFactory()
+        factory = ComponentFactory(viewFactory)
     }
 
     @Test
